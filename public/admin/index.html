@@ -89,15 +89,27 @@
 
             <button
               class="nav-link"
-              id="v-pills-callback-tab"
+              id="v-pills-request-tab"
               data-bs-toggle="pill"
-              data-bs-target="#v-pills-callback"
+              data-bs-target="#v-pills-request"
               type="button"
               role="tab"
-              aria-controls="v-pills-callback"
+              aria-controls="v-pills-request"
               aria-selected="false"
             >
               Callback requests
+            </button>
+            <button
+              class="nav-link d-none"
+              id="v-pills-add-post-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-add-post"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-add-post"
+              aria-selected="false"
+            >
+              Create Post
             </button>
           </div>
           <div class="tab-content border rounded w-75 p-3" id="v-pills-tabContent">
@@ -108,7 +120,7 @@
               aria-labelledby="v-pills-articles-tab"
               tabindex="0"
             >
-              <button class="btn btn-primary mb-3">Add post</button>
+              <button class="add-post btn btn-primary mb-3">Add post</button>
               <table class="articles-list table table-striped">
                 <tbody></tbody>
               </table>
@@ -124,18 +136,51 @@
             </div>
             <div
               class="tab-pane fade"
-              id="v-pills-callback"
+              id="v-pills-requests"
               role="tabpanel"
-              aria-labelledby="v-pills-callback-tab"
+              aria-labelledby="v-pills-requests-tab"
               tabindex="0"
             >
               ...
+            </div>
+            <div
+              class="tab-pane fade"
+              id="v-pills-add-post"
+              role="tabpanel"
+              aria-labelledby="v-pills-add-post-tab"
+              tabindex="0"
+            >
+              <h1>Create Post</h1>
+              <form class="create-post-form">
+                <div class="mb-3">
+                  <label for="title" class="mb-1">Title</label>
+                  <input type="text" id="title" class="form-control" placeholder="Title" />
+                </div>
+                <div class="mb-3">
+                  <label for="country" class="mb-1">Country</label>
+                  <input type="text" id="country" class="form-control" placeholder="Country" />
+                </div>
+                <div class="mb-3">
+                  <label for="imageURL" class="mb-1">Image</label>
+                  <input type="url" id="imageURL" class="form-control" placeholder="URL" />
+                </div>
+                <div class="mb-3">
+                  <label for="image-file" class="mb-1">OR</label>
+                  <input type="file" id="image-file" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="text" class="form-control">Text</label>
+                  <textarea id="text" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Create Post</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </main>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../admin/js/create-post.js"></script>
     <script src="../admin/js/main.js"></script>
   </body>
 </html>

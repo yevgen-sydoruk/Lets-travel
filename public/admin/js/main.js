@@ -9,18 +9,24 @@ document.addEventListener("DOMContentLoaded", async function () {
   console.log(posts);
   let articles = document.querySelector(".articles-list tbody");
   articles.innerHTML = "";
+  let i = 1;
   posts.forEach((post) => {
     console.log(post);
     let postHTML = `
     <tr>
-                    <td>${post.id}</td>
-                    <td>${post.title}</td>
-                    <td>${post.date}</td>
-                    <td>${post.country}</td>
-                    <td><button class="btn btn-link p-0 text-decoration-none">Edit</button></td>
-                    <td><button class="btn btn-link p-0 text-decoration-none">X</button></td>
+                    <td>${i++}<input class="id" type="hidden" value="${post.id}"></td>
+                    <td class="title" >${post.title}</td>
+                    <td class="date">${post.date}</td>
+                    <td class="country">${post.country}</td>
+                    <td><button class="edit-btn btn btn-link p-0 text-decoration-none">Edit</button></td>
+                    <td><button class="remove-btn btn btn-link p-0 text-decoration-none">X</button></td>
                   </tr>
     `;
     articles.insertAdjacentHTML("beforeend", postHTML);
   });
+
+  //CREATE POST
+  let addPostBtn = document.querySelector(".add-post");
+  let createPostBtn = document.querySelector("#v-pills-add-post-tab");
+  addPostBtn.addEventListener("click", () => createPostBtn.click());
 });

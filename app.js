@@ -4,6 +4,7 @@ let mongoose = require("mongoose");
 let postsRouter = require("./routes/posts.route");
 let callbackRequestsRouter = require("./routes/callback-requests.route");
 let multer = require("multer");
+const { CallbackRequest } = require("./models/callback-requests.model");
 
 mongoose.connect("mongodb://127.0.0.1:27017/travels");
 app.use(express.json());

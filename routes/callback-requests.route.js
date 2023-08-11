@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
   let reqBody = req.body;
   let newRequest = new CallbackRequest({
     id: uniqid(),
-    phoneNumber: reqBody.phone,
+    phoneNumber: reqBody.phoneNumber,
     date: new Date(),
   });
   await newRequest.save();

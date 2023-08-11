@@ -4,6 +4,8 @@ async function getPosts() {
     .then((data) => data);
 }
 
+let callMeForm = document.querySelector(".call-me-form");
+
 document.addEventListener("DOMContentLoaded", async function () {
   let posts = await getPosts();
   let articles = document.querySelector(".landmarks");
@@ -25,4 +27,20 @@ document.addEventListener("DOMContentLoaded", async function () {
       `;
     articles.insertAdjacentHTML("beforeend", postHTML);
   });
+});
+
+callMeForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let phoneInput = callMeForm.querySelector("input");
+  fetch("http://localhost:3000/callback-requests", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      phoneNumber: phoneInput.value,
+    }),
+  })
+    .then((res) => res.text())
+    .then(() => alert("We will call you back as soon as possible!"));
 });

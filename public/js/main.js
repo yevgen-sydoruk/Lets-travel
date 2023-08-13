@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         <p class="card-text">
           ${post.description}
         </p>
-        <button class="btn btn-primary mt-auto me-auto">Details</button>
+        <a href='/landmark?id=${post.id}' class="btn btn-primary mt-auto me-auto">Details</a>
       </div>
     </div>
   </div>

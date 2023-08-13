@@ -4,8 +4,6 @@ async function getPosts() {
     .then((data) => data);
 }
 
-let callMeForm = document.querySelector(".call-me-form");
-
 document.addEventListener("DOMContentLoaded", async function () {
   let posts = await getPosts();
   let articles = document.querySelector(".landmarks");
@@ -29,6 +27,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 });
 
+let callMeForm = document.querySelector(".call-me-form");
+
 callMeForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let phoneInput = callMeForm.querySelector("input");
@@ -43,4 +43,23 @@ callMeForm.addEventListener("submit", function (e) {
   })
     .then((res) => res.text())
     .then(() => alert("We will call you back as soon as possible!"));
+});
+
+let contactUsForm = document.querySelector(".contact-us-form");
+
+contactUsForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log("Clicked");
+  let nameInput = contactUsForm.querySelector("#name");
+  let emailInput = contactUsForm.querySelector("#email");
+  let messageInput = contactUsForm.querySelector("#message");
+  fetch("http://localhost:3000/email-requests", {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({
+      nameInput: nameInput.value,
+      emailInput: emailInput.value,
+      messageInput: messageInput.value,
+    }),
+  }).then((res) => res.text());
 });

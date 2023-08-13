@@ -1,7 +1,7 @@
-let Post = require("../models/post.model").Post;
-let uniqid = require("uniqid");
 let express = require("express");
 let router = express.Router();
+let uniqid = require("uniqid");
+let Post = require("../models/post.model").Post;
 
 router.get("/", async (req, res) => {
   let posts = await Post.find();

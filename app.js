@@ -3,8 +3,8 @@ let app = express();
 let mongoose = require("mongoose");
 let postsRouter = require("./routes/posts.route");
 let callbackRequestsRouter = require("./routes/callback-requests.route");
+let emailRequestRouter = require("./routes/email-requests.route");
 let multer = require("multer");
-const { CallbackRequest } = require("./models/callback-requests.model");
 
 mongoose.connect("mongodb://127.0.0.1:27017/travels");
 app.use(express.json());
@@ -19,5 +19,6 @@ app.use(multer({ storage: imageStorage }).single("imageFile"));
 app.use(express.static("public"));
 app.use("/posts", postsRouter);
 app.use("/callback-requests", callbackRequestsRouter);
+app.use("/email-requests", emailRequestRouter);
 
 app.listen(3000, () => console.log("Listening on port 3000..."));

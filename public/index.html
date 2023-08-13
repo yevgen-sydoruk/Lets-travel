@@ -144,20 +144,27 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form class="contact-us-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Your name</label>
                 <input type="text" class="form-control" id="name" placeholder="Name" />
               </div>
               <div class="mb-3">
-                <label for="phone" class="form-label">Phone number</label>
-                <input type="text" class="form-control" id="phone" placeholder="Phone" />
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" />
               </div>
               <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                data-bs-target="contact-us-modal"
+              >
+                Submit
+              </button>
             </form>
           </div>
         </div>

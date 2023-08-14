@@ -1,5 +1,5 @@
 async function getPosts() {
-  return await fetch("http://localhost:3000/posts")
+  return await fetch("/posts")
     .then((res, req) => res.json())
     .then((data) => data);
 }
@@ -32,7 +32,7 @@ let callMeForm = document.querySelector(".call-me-form");
 callMeForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let phoneInput = callMeForm.querySelector("input");
-  fetch("http://localhost:3000/callback-requests", {
+  fetch("/callback-requests", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +53,7 @@ contactUsForm.addEventListener("submit", function (e) {
   let nameInput = contactUsForm.querySelector("#name");
   let emailInput = contactUsForm.querySelector("#email");
   let messageInput = contactUsForm.querySelector("#message");
-  fetch("http://localhost:3000/email-requests", {
+  fetch("/email-requests", {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({

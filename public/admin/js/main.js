@@ -1,17 +1,17 @@
 async function getPosts() {
-  return await fetch("http://localhost:3000/posts")
+  return await fetch("/posts")
     .then((res, req) => res.json())
     .then((data) => data);
 }
 
 async function getCallbackRequests() {
-  return await fetch("http://localhost:3000/callback-requests")
+  return await fetch("/callback-requests")
     .then((res, req) => res.json())
     .then((data) => data);
 }
 
 async function getEmailsRequests() {
-  return await fetch("http://localhost:3000/email-requests")
+  return await fetch("/email-requests")
     .then((res, req) => res.json())
     .then((data) => data);
 }
@@ -88,7 +88,7 @@ let requestsBlock = document.querySelector("#v-pills-requests");
 requestsBlock.addEventListener("click", (e) => {
   if (e.target.classList.contains("remove-btn")) {
     let id = e.target.parentNode.parentNode.querySelector(".id").value;
-    fetch("http://localhost:3000/callback-requests/" + id, {
+    fetch("/callback-requests/" + id, {
       method: "DELETE",
     })
       .then((res) => res.text())
@@ -101,7 +101,7 @@ let emailsBlock = document.querySelector("#v-pills-mails");
 emailsBlock.addEventListener("click", (e) => {
   if (e.target.classList.contains("remove-btn")) {
     let id = e.target.parentNode.parentNode.querySelector(".id").value;
-    fetch("http://localhost:3000/email-requests/" + id, {
+    fetch("/email-requests/" + id, {
       method: "DELETE",
     })
       .then((res) => res.text())

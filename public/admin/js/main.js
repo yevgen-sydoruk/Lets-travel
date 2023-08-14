@@ -108,3 +108,15 @@ emailsBlock.addEventListener("click", (e) => {
       .then(() => window.history.go());
   }
 });
+
+let logOutBtn = document.querySelector(".log-out-btn");
+
+logOutBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  document.cookie.split(";").forEach(function (c) {
+    document.cookie = c
+      .replace(/^ +/, "")
+      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  });
+  window.location.href = "/";
+});

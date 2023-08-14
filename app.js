@@ -12,7 +12,10 @@ let auth = require("./controllers/auth");
 
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb+srv://drevil:MeLiOdAs2@mycluster.7ayi3g8.mongodb.net/travels");
+let username = process.env.mongoUserName;
+let password = process.env.mongoUserPass;
+
+mongoose.connect(`mongodb+srv://${username}:${password}@mycluster.7ayi3g8.mongodb.net/travels`);
 app.use(express.json());
 
 let imageStorage = multer.diskStorage({
